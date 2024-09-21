@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extension Configuration</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        textarea { width: 100%; height: 100px; }
+        button { margin-top: 10px; }
+        #apiKeyDisplay { 
+            margin-top: 10px; 
+            padding: 10px; 
+            border: 1px solid #ccc; 
+            background-color: #f0f0f0; 
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Extension Configuration</h1>
+
+    <h2>API Key</h2>
+    <div id="apiKeyDisplay">Loading API key...</div>
+
+    <h2>Update Rules</h2>
+    <form id="rulesForm">
+        <label for="urls">URLs to check (one per line):</label><br>
+        <textarea id="urls" name="urls"></textarea><br>
+
+        <label for="patterns">Patterns (JSON format):</label><br>
+        <textarea id="patterns" name="patterns"></textarea><br>
+
+        <label for="guidelinesUrl">Guidelines URL:</label><br>
+        <input type="url" id="guidelinesUrl" name="guidelinesUrl"><br>
+
+        <button type="submit">Update Rules</button>
+    </form>
+
+    <h2>Usage Data</h2>
+    <pre id="usageData">Loading usage data...</pre>
+
+    <script>
+        const apiUrl = 'http://localhost:3000';
+
+        // Fetch and display the API key
+        async function fetchApiKey() {
+            try {
+                const response = await fetch(`${apiUrl}/api-key`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch API key');
+                }
+                const data = await response.json();
+                const apiKeyDisplay = document.getElementById('apiKeyDisplay');
+                apiKeyDisplay.innerHTML = `
+                    <p><strong>API Key:</strong> ${data.apiKey}</p>
+                    <p>This is your unique API key. Use this key in your browser extension's settings.</p>
+                    <p>Keep this key secure and do not share it publicly.</p>
+                `;
+            } catch (error) {
+                console.error('Error fetching API key:', error);
+                document.getElementById('apiKeyDisplay').textContent = 'Failed to load API key. Please refresh the page or contact support.';
+            }
+        }
+
+        document.getElementById('rulesForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            try {
+                const urls = document.getElementById('urls').value.split('\n').filter(url => url.trim() !== '');
+                const patterns = JSON.parse(document.getElementById('patterns').value);
+                const guidelinesUrl = document.getElementById('guidelinesUrl').value;
+
+                const response = await fetch(`${apiUrl}/rules`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ urls, patterns, guidelinesUrl })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to update rules');
+                }
+
+                const data = await response.json();
+                alert(data.message);
+            } catch (error) {
+                console.error('Error updating rules:', error);
+                alert('Failed to update rules. Please check your input and try again.');
+            }
+        });
+
+        async function loadRules() {
+            try {
+                const response = await fetch(`${apiUrl}/rules`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch rules');
+                }
+                const rules = await response.json();
+                document.getElementById('urls').value = rules.urls ? rules.urls.join('\n') : '';
+                document.getElementById('patterns').value = rules.patterns ? JSON.stringify(rules.patterns, null, 2) : '';
+                document.getElementById('guidelinesUrl').value = rules.guidelinesUrl || '';
+            } catch (error) {
+                console.error('Error loading rules:', error);
+                alert('Failed to load existing rules. You may be working with a blank configuration.');
+            }
+        }
+
+        async function loadUsageData() {
+            try {
+                const response = await fetch(`${apiUrl}/usage`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch usage data');
+                }
+                const usageData = await response.json();
+                document.getElementById('usageData').textContent = JSON.stringify(usageData, null, 2);
+            } catch (error) {
+                console.error('Error loading usage data:', error);
+                document.getElementById('usageData').textContent = 'Failed to load usage data.';
+            }
+        }
+
+        fetchApiKey();
+        loadRules();
+        loadUsageData();
+    </script>
+</body>
+</html>

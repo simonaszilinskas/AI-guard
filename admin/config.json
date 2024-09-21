@@ -1,0 +1,16 @@
+{
+  "apiKey": "13e9bbdb53f2fd1211b78c074305016c09cef57980b4c4164f3e9dd1f25e3cc1",
+  "rules": {
+    "urls": [
+      "https://claude.ai",
+      "https://chatgpt.com",
+      "https://chatgpt.com/"
+    ],
+    "patterns": {
+      "email": "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}",
+      "phone": "\\+?[1-9]\\d{1,14}",
+      "creditCard": "\\b(?:\\d[ -]*?){13,16}\\b"
+    },
+    "guidelinesUrl": "https://club.decidim.opensourcepolitics.eu/assemblies/feuille-de-route"
+  }
+}

@@ -1,0 +1,185 @@
+[
+  {
+    "userName": "testuser",
+    "action": "testAction",
+    "details": "testDetails",
+    "url": "https://example.com",
+    "timestamp": "2021-01-01T00:00:00.000Z"
+  },
+  {
+    "userName": "Simon",
+    "action": "sensitiveDataDetected",
+    "details": {
+      "sensitiveDataTypes": [
+        "email"
+      ]
+    },
+    "url": "https://chatgpt.com/",
+    "timestamp": "2024-09-18T08:29:20.087Z"
+  },
+  {
+    "userName": "Simon",
+    "action": "dataAnonymized",
+    "details": {
+      "sensitiveData": {
+        "email": [
+          "zilinskassimoans@gmail.com"
+        ],
+        "phoneNumber": [],
+        "creditCard": [],
+        "ssn": []
+      }
+    },
+    "url": "https://chatgpt.com/",
+    "timestamp": "2024-09-18T08:29:33.395Z"
+  },
+  {
+    "userName": "S",
+    "action": "pageCheck",
+    "details": {
+      "currentUrl": "https://chatgpt.com/"
+    },
+    "url": "https://chatgpt.com/",
+    "timestamp": "2024-09-18T09:54:46.893Z"
+  },
+  {
+    "userName": "S",
+    "action": "pageCheck",
+    "details": {
+      "currentUrl": "https://chatgpt.com/"
+    },
+    "url": "https://chatgpt.com/",
+    "timestamp": "2024-09-18T09:57:27.125Z"
+  },
+  {
+    "userName": "S",
+    "action": "pageCheck",
+    "details": {
+      "currentUrl": "https://chatgpt.com/"
+    },
+    "url": "https://chatgpt.com/",
+    "timestamp": "2024-09-18T11:52:05.334Z"
+  },
+  {
+    "userName": "S",
+    "action": "pageCheck",
+    "details": {
+      "currentUrl": "https://chatgpt.com/"
+    },
+    "url": "https://chatgpt.com/",
+    "timestamp": "2024-09-18T12:01:59.396Z"
+  },
+  {
+    "userName": "S",
+    "action": "pageCheck",
+    "details": {
+      "currentUrl": "https://claude.ai/new"
+    },
+    "url": "https://claude.ai/new",
+    "timestamp": "2024-09-18T12:04:11.017Z"
+  },
+  {
+    "userName": "asd",
+    "action": "sensitiveDataDetected",
+    "details": {
+      "sensitiveDataTypes": [
+        "email"
+      ]
+    },
+    "url": "https://chatgpt.com/",
+    "timestamp": "2024-09-18T12:37:21.034Z"
+  },
+  {
+    "userName": "asd",
+    "action": "dataAnonymized",
+    "details": {
+      "sensitiveData": {
+        "email": [
+          "zilins@gmail.com"
+        ],
+        "phone": [],
+        "creditCard": []
+      }
+    },
+    "url": "https://chatgpt.com/",
+    "timestamp": "2024-09-18T12:37:27.911Z"
+  },
+  {
+    "userName": "asd",
+    "action": "sensitiveDataDetected",
+    "details": {
+      "sensitiveDataTypes": [
+        "phone"
+      ]
+    },
+    "url": "https://chatgpt.com/",
+    "timestamp": "2024-09-18T12:37:39.078Z"
+  },
+  {
+    "userName": "asd",
+    "action": "dataAnonymized",
+    "details": {
+      "sensitiveData": {
+        "email": [],
+        "phone": [
+          "+33782744488"
+        ],
+        "creditCard": []
+      }
+    },
+    "url": "https://chatgpt.com/",
+    "timestamp": "2024-09-18T12:37:41.418Z"
+  },
+  {
+    "userName": "asd",
+    "action": "sensitiveDataDetected",
+    "details": {
+      "sensitiveDataTypes": [
+        "email"
+      ]
+    },
+    "url": "https://chatgpt.com/",
+    "timestamp": "2024-09-18T12:41:49.445Z"
+  },
+  {
+    "userName": "asd",
+    "action": "dataAnonymized",
+    "details": {
+      "sensitiveData": {
+        "email": [
+          "simonas@tortue.studio"
+        ],
+        "phone": [],
+        "creditCard": []
+      }
+    },
+    "url": "https://chatgpt.com/",
+    "timestamp": "2024-09-18T12:41:56.127Z"
+  },
+  {
+    "userName": "Simonas",
+    "action": "sensitiveDataDetected",
+    "details": {
+      "sensitiveDataTypes": [
+        "email"
+      ]
+    },
+    "url": "https://chatgpt.com/",
+    "timestamp": "2024-09-21T11:06:23.724Z"
+  },
+  {
+    "userName": "Simonas",
+    "action": "dataAnonymized",
+    "details": {
+      "sensitiveData": {
+        "email": [
+          "zilinskassimonas@gmail.com"
+        ],
+        "phone": [],
+        "creditCard": []
+      }
+    },
+    "url": "https://chatgpt.com/",
+    "timestamp": "2024-09-21T11:06:34.667Z"
+  }
+]

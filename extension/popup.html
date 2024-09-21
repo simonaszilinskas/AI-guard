@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Extension Settings</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 10px; }
+        input, textarea { width: 100%; padding: 8px; margin: 8px 0; }
+        button { width: 100%; padding: 10px; cursor: pointer; }
+        #statusMessage { margin: 10px 0; color: green; }
+        #rules { margin: 8px 0; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <h1>Extension Settings</h1>
+    <label for="userName">User Name:</label>
+    <input type="text" id="userName" placeholder="Enter your name">
+    <label for="apiKey">API Key:</label>
+    <input type="text" id="apiKey" placeholder="Enter your API key">
+    <button id="saveApiKey">Save API Key</button>
+    <p id="statusMessage"></p>
+
+    <h2>Current Rules</h2>
+    <pre id="rules">Loading rules...</pre>
+
+    <script src="popup.js"></script>
+</body>
+</html>
